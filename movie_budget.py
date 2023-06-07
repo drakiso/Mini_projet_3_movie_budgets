@@ -2,7 +2,10 @@
 Find the average budget of the films in our data set, and
 identify high budget films that exceed the average budget we calculate."""
 
-movies = [
+MOVIE_TYPE = tuple[str, int]
+
+
+movies: list[MOVIE_TYPE] = [
     ("Eternal Sunshine of the Spotless Mind", 20000000),
     ("Memento", 9000000),
     ("Requiem for a Dream", 4500000),
@@ -12,21 +15,21 @@ movies = [
     ("Incredibles 2", 200000000)
 ]
 
-new_movie_count = int(input("Enter how many new movies you wish to add: "))
+new_movie_count: int = int(input("Enter how many new movies you wish to add: "))
 
 for _ in range(new_movie_count):
-    name = input("Enter new movie name: ").strip().title()
-    budget = int(input("Enter new movie budget: "))
-    new_movie = (name, budget)
+    name: str = input("Enter new movie name: ").strip().title()
+    budget: int = int(input("Enter new movie budget: "))
+    new_movie: MOVIE_TYPE = (name, budget)
     movies.append(new_movie)
 
-total_budget = 0
-counter = 0
+total_budget: int = 0
+counter: int = 0
 
 for name, budget in movies:
     total_budget += budget
 
-average_budget = total_budget / len(movies)
+average_budget: float = total_budget / len(movies)
 
 print(f"The average budget of all movies is {average_budget:_}")
 
